@@ -1,0 +1,29 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "assignees": ["mkevenaar"],
+  "labels": ["renovate"],
+  "lockFileMaintenance": {"enabled": true, "extends": ["schedule:daily"]},
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["major", "minor"],
+      "matchPackageNames": ["php"],
+      "enabled": false
+    },
+    {
+      "matchDatasources": ["docker"],
+      "matchUpdateTypes": ["minor", "patch", "bump", "digest", "rollback"],
+      "enabled": false
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest", "lockFileMaintenance"],
+      "enabled": true,
+      "automerge": true
+    }
+  ],
+  "constraints": {
+    "php": "^8.1"
+  }
+}
