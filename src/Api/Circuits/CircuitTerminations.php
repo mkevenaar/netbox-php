@@ -1,9 +1,9 @@
 <?php
 
-namespace port389\NetBox\Api\Circuits;
+namespace mkevenaar\NetBox\Api\Circuits;
 
 use GuzzleHttp\Exception\GuzzleException;
-use port389\NetBox\Api\AbstractApi;
+use mkevenaar\NetBox\Api\AbstractApi;
 
 class CircuitTerminations extends AbstractApi
 {

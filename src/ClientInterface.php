@@ -1,6 +1,6 @@
 <?php
 
-namespace port389\NetBox;
+namespace mkevenaar\NetBox;
 
 interface ClientInterface
 {

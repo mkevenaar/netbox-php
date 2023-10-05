@@ -2,12 +2,14 @@
 
 Note, this is a fork of the Wicked Software Corp. "[Laravel NetBox](https://github.com/wickedsoft/laravel-netbox)" Package, original Credits go to them.
 
-The Package was refactored to allow Installation as a standalone composer package (thus is available under the `port389` namespace for this package). The package was tested against [NetBox v3.2.2](https://github.com/netbox-community/netbox/releases/tag/v3.2.2) while implementing NetBox in the company I'm working for in "scratch your own itch"-Mode. We mainly use the IPAM module in NetBox, other components are not heavily tested.
+Note, this is a fork of the "[port389/netbox-php](https://github.com/hexa2k9/netbox-php)" Package, original Credits go to them
+
+The Package was refactored to allow Installation as a standalone composer package (thus is available under the `mkevenaar` namespace for this package). The package was tested against [NetBox v3.2.2](https://github.com/netbox-community/netbox/releases/tag/v3.2.2) while implementing NetBox in the company I'm working for in "scratch your own itch"-Mode. We mainly use the IPAM module in NetBox, other components are not heavily tested.
 
 ## Installation
 
 ```bash
-composer require port389/netbox-php
+composer require mkevenaar/netbox
 ```
 
 ### Environment Variables
@@ -22,7 +24,7 @@ The package requires 2 environment variables being set accessible through `geten
 ## Example Usage
 
 ```php
-$api = new \port389\NetBox\Api\IPAM\IpAddresses(new \port389\NetBox\Client());
+$api = new \mkevenaar\NetBox\Api\IPAM\IpAddresses(new \mkevenaar\NetBox\Client());
 $result = $api->add([
     'address'  => '11.22.33.44/32',
     'dns_name' => 'foo.example.com'
@@ -115,5 +117,3 @@ $result = $api->list(['address' => '11.22.33.44/32'])
   * [Clusters](src/Api/Virtualization/Clusters.php)
   * [Interfaces](src/Api/Virtualization/Interfaces.php)
   * [VirtualMachines](src/Api/Virtualization/VirtualMachines.php)
-
-

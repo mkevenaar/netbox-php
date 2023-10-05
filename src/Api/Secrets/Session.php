@@ -1,9 +1,9 @@
 <?php
 
-namespace port389\NetBox\Api\Secrets;
+namespace mkevenaar\NetBox\Api\Secrets;
 
 use GuzzleHttp\Exception\GuzzleException;
-use port389\NetBox\Api\AbstractApi;
+use mkevenaar\NetBox\Api\AbstractApi;
 
 class Session extends AbstractApi
 {

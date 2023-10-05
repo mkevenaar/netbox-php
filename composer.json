@@ -1,5 +1,5 @@
 {
-    "name": "port389/netbox",
+    "name": "mkevenaar/netbox",
     "description": "Netbox for PHP",
     "keywords": ["netbox"],
     "license": "MIT",
@@ -10,7 +10,7 @@
     },
     "autoload": {
         "psr-4": {
-            "port389\\NetBox\\": "src/"
+            "mkevenaar\\NetBox\\": "src/"
         }
     },
     "minimum-stability": "stable",

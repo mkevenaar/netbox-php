@@ -1,9 +1,9 @@
 <?php
 
-namespace port389\NetBox\Api\Virtualization;
+namespace mkevenaar\NetBox\Api\Virtualization;
 
 use GuzzleHttp\Exception\GuzzleException;
-use port389\NetBox\Api\AbstractApi;
+use mkevenaar\NetBox\Api\AbstractApi;
 
 class Clusters extends AbstractApi
 {

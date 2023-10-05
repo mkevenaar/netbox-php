@@ -4,7 +4,7 @@
   ],
   "assignees": ["mkevenaar"],
   "labels": ["renovate"],
-  "lockFileMaintenance": {"enabled": true, "extends": ["schedule:daily"]},
+  "lockFileMaintenance": {"enabled": false, "extends": ["schedule:daily"]},
   "packageRules": [
     {
       "matchDatasources": ["docker"],

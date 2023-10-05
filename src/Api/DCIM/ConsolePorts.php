@@ -1,9 +1,9 @@
 <?php
 
-namespace port389\NetBox\Api\DCIM;
+namespace mkevenaar\NetBox\Api\DCIM;
 
 use GuzzleHttp\Exception\GuzzleException;
-use port389\NetBox\Api\AbstractApi;
+use mkevenaar\NetBox\Api\AbstractApi;
 
 class ConsolePorts extends AbstractApi
 {

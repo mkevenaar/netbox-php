@@ -1,9 +1,9 @@
 <?php
 
-namespace port389\NetBox\Api\Tenancy;
+namespace mkevenaar\NetBox\Api\Tenancy;
 
 use GuzzleHttp\Exception\GuzzleException;
-use port389\NetBox\Api\AbstractApi;
+use mkevenaar\NetBox\Api\AbstractApi;
 
 class Tenants extends AbstractApi
 {

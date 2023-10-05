@@ -1,6 +1,6 @@
 <?php
 
-namespace port389\NetBox\HttpClient;
+namespace mkevenaar\NetBox\HttpClient;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;

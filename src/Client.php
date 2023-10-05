@@ -1,10 +1,10 @@
 <?php
 
-namespace port389\NetBox;
+namespace mkevenaar\NetBox;
 
 use BadMethodCallException;
 use InvalidArgumentException;
-use port389\NetBox\HttpClient\HttpClient;
+use mkevenaar\NetBox\HttpClient\HttpClient;
 use RuntimeException;
 
 class Client
@@ -148,7 +148,7 @@ class Client
         if (!isset($this->classes[$name])) {
             throw new InvalidArgumentException(sprintf('Undefined method called: "%s"', $name));
         }
-        $class = '\\port389\\NetBox\\Api\\' . $this->classes[$name];
+        $class = '\\mkevenaar\\NetBox\\Api\\' . $this->classes[$name];
 
         return new $class($this);
     }

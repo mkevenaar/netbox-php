@@ -1,9 +1,9 @@
 <?php
 
-namespace port389\NetBox\Api\Extras;
+namespace mkevenaar\NetBox\Api\Extras;
 
 use GuzzleHttp\Exception\GuzzleException;
-use port389\NetBox\Api\AbstractApi;
+use mkevenaar\NetBox\Api\AbstractApi;
 
 class CustomFields extends AbstractApi
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace port389\NetBox\Api\IPAM;
+namespace mkevenaar\NetBox\Api\IPAM;
 
 use GuzzleHttp\Exception\GuzzleException;
-use port389\NetBox\Api\AbstractApi;
+use mkevenaar\NetBox\Api\AbstractApi;
 
 class Services extends AbstractApi
 {

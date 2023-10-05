@@ -1,6 +1,6 @@
 <?php
 
-namespace port389\NetBox\Api;
+namespace mkevenaar\NetBox\Api;
 
 interface ApiInterface
 {

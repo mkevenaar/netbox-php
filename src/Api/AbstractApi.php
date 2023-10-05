@@ -1,9 +1,9 @@
 <?php
 
-namespace port389\NetBox\Api;
+namespace mkevenaar\NetBox\Api;
 
 use GuzzleHttp\Exception\GuzzleException;
-use port389\NetBox\Client;
+use mkevenaar\NetBox\Client;
 
 abstract class AbstractApi implements ApiInterface
 {
