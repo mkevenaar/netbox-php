@@ -104,6 +104,9 @@ $result = $api->list(['address' => '11.22.33.44/32'])
   * [Secrets](src/Api/Secrets/Secrets.php)
   * [Session](src/Api/Secrets/Session.php)
 * Tenancy
+  * [ContactGroups](src/Api/Tenancy/ContactGroups.php)
+  * [ContactRoles](src/Api/Tenancy/ContactRoles.php)
+  * [Contacts](src/Api/Tenancy/Contacts.php)
   * [TenantGroups](src/Api/Tenancy/TenantGroups.php)
   * [Tenants](src/Api/Tenancy/Tenants.php)
 * Users

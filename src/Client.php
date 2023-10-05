@@ -85,6 +85,9 @@ class Client
         'session' => 'Secrets\Session',
 
         // Tenancy
+        'contactGroups' => 'Tenancy\ContactGroups',
+        'contactRoles' => 'Tenancy\ContactRoles',
+        'contacts' => 'Tenancy\Contacts',
         'tenantGroups' => 'Tenancy\TenantGroups',
         'tenants' => 'Tenancy\Tenants',
 
