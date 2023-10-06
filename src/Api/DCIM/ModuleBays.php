@@ -1,6 +1,6 @@
 <?php
 
-namespace mkevenaar\NetBox\Api\Tenancy;
+namespace mkevenaar\NetBox\Api\DCIM;
 
 use GuzzleHttp\Exception\GuzzleException;
 use mkevenaar\NetBox\Api\AbstractApi;
