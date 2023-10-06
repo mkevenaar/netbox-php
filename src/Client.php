@@ -38,6 +38,7 @@ class Client
         'inventoryItems' => 'DCIM\InventoryItems',
         'manufacturers' => 'DCIM\Manufacturers',
         'moduleBays' => 'DCIM\ModuleBays',
+        'modules' => 'DCIM\Modules',
         'platforms' => 'DCIM\Platforms',
         'powerFeeds' => 'DCIM\PowerFeeds',
         'powerOutlets' => 'DCIM\PowerOutlets',
