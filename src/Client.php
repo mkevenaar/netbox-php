@@ -12,10 +12,10 @@ class Client
     /** @var array */
     protected $classes = [
         // Circuits
-        'circuits' => 'Circuits\Circuits',
-        'providers' => 'Circuits\Providers',
         'circuitTerminations' => 'Circuits\CircuitTerminations',
         'circuitTypes' => 'Circuits\CircuitTypes',
+        'circuits' => 'Circuits\Circuits',
+        'providers' => 'Circuits\Providers',
 
         // DCIM
         'cables' => 'DCIM\Cables',
@@ -37,6 +37,7 @@ class Client
         'interfaceTemplates' => 'DCIM\InterfaceTemplates',
         'inventoryItems' => 'DCIM\InventoryItems',
         'manufacturers' => 'DCIM\Manufacturers',
+        'moduleBays' => 'DCIM\ModuleBays',
         'platforms' => 'DCIM\Platforms',
         'powerFeeds' => 'DCIM\PowerFeeds',
         'powerOutlets' => 'DCIM\PowerOutlets',
