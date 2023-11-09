@@ -1,0 +1,69 @@
+---
+name: Release
+on:
+  push:
+    branches:
+      - release/*
+
+jobs:
+  release:
+    name: Release
+    if: startsWith(github.ref, 'refs/heads/release')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.1.1
+
+      - name: Fetch all history for all tags and branches
+        run: git fetch --prune --unshallow
+
+      - name: Zip Release
+        run: zip -x '*.git*' -r release.zip .
+
+      - name: Extract owner and repo
+        uses: jungwinter/split@v2
+        id: repo
+        with:
+          separator: '/'
+          msg: ${{ github.repository }}
+
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.10.2
+        with:
+          versionSpec: '5.x'
+
+      - name: Use GitVersion
+        uses: gittools/actions/gitversion/execute@v0.10.2
+        id: gitversion
+
+      - name: Install GitReleaseManager
+        uses: gittools/actions/gitreleasemanager/setup@v0.10.2
+        with:
+          versionSpec: '0.14.x'
+
+      - name: Create release with GitReleaseManager
+        uses: gittools/actions/gitreleasemanager/create@v0.10.2
+        with:
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+          owner: ${{ steps.repo.outputs._0 }}
+          repository: ${{ steps.repo.outputs._1 }}
+          milestone: ${{ steps.gitversion.outputs.majorMinorPatch }}
+          name: 'Release ${{ steps.gitversion.outputs.majorMinorPatch }}'
+          assets:  |
+            release.zip
+
+      - name: Publish release with GitReleaseManager
+        uses: gittools/actions/gitreleasemanager/publish@v0.10.2
+        with:
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+          owner: ${{ steps.repo.outputs._0 }}
+          repository: ${{ steps.repo.outputs._1 }}
+          tagName: ${{ steps.gitversion.outputs.majorMinorPatch }}
+
+      - name: Close release with GitReleaseManager
+        uses: gittools/actions/gitreleasemanager/close@v0.10.2
+        with:
+          token: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
+          owner: ${{ steps.repo.outputs._0 }}
+          repository: ${{ steps.repo.outputs._1 }}
+          milestone: ${{ steps.gitversion.outputs.majorMinorPatch }}
