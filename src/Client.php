@@ -116,15 +116,27 @@ class Client
     /** @var array */
     protected $options = [];
 
-    public function __construct()
+    private $netbox_api = null;
+    private $netbox_token = null;
+
+    public function __construct($netbox_api = null, $netbox_token = null)
     {
-        if (strlen(getenv('NETBOX_API')) === 0 || strlen(getenv('NETBOX_API_KEY')) === 0) {
+        $this->netbox_api = $netbox_api;
+        $this->netbox_token = $netbox_token;
+        if($this->netbox_api === null && strlen(getenv('NETBOX_API')) !== 0) {
+            $this->netbox_api = getenv('NETBOX_API');
+        }
+        if($this->netbox_token === null && strlen(getenv('NETBOX_API_KEY')) !== 0) {
+            $this->netbox_token = getenv('NETBOX_API_KEY');
+        }
+        if ($this->netbox_api === null || $this->netbox_token === null) {
             throw new RuntimeException(
                 sprintf(
-                    'Environment Variables not found (NETBOX_API, NETBOX_API_KEY): "%s" "redacted(%s(%s))"',
-                    getenv('NETBOX_API'),
-                    gettype(getenv('NETBOX_API_KEY')),
-                    strlen(getenv('NETBOX_API_KEY'))
+                    'Client not properly configured (NETBOX_API, NETBOX_API_KEY): "%s" "redacted(%s(%s))". 
+                    Please configure in constructor or environment variables',
+                    $this->netbox_api,
+                    gettype($this->netbox_token),
+                    strlen($this->netbox_token)
                 ),
                 1653901216
             );
@@ -168,7 +180,8 @@ class Client
             $this->httpClient = new HttpClient();
         }
         $this->httpClient->setOptions($this->getOptions());
-
+        $this->httpClient->setBaseUri($this->netbox_api);
+        $this->httpClient->setAuthToken($this->netbox_token);
         return $this->httpClient;
     }
 
