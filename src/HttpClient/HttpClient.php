@@ -13,6 +13,14 @@ class HttpClient implements HttpClientInterface
 
     /** @var array */
     protected $options = [];
+    /**
+     * @var string
+     */
+    private $baseUri;
+    /**
+     * @var string
+     */
+    private $authToken;
 
     /**
      * @return Client
@@ -21,7 +29,7 @@ class HttpClient implements HttpClientInterface
     {
         if (!isset($this->client)) {
             $this->client = new Client([
-                'base_uri' => getenv('NETBOX_API'),
+                'base_uri' => $this->baseUri,
                 RequestOptions::TIMEOUT => 180,
                 RequestOptions::COOKIES => true,
                 RequestOptions::CONNECT_TIMEOUT => 180,
@@ -29,7 +37,7 @@ class HttpClient implements HttpClientInterface
                 RequestOptions::HEADERS => [
                     'Accept' => 'application/json',
                     'Content-Type' => 'application/json',
-                    'Authorization' => sprintf("Token %s", getenv('NETBOX_API_KEY')),
+                    'Authorization' => sprintf("Token %s", $this->authToken),
                 ]
             ]);
 
@@ -159,5 +167,15 @@ class HttpClient implements HttpClientInterface
     public function setOptions(array $options)
     {
         $this->options = array_merge($this->options, $options);
+    }
+
+    public function setBaseUri(string $uri)
+    {
+        $this->baseUri = $uri;
+    }
+
+    public function setAuthToken(string $token)
+    {
+        $this->authToken = $token;
     }
 }
