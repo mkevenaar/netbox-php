@@ -41,4 +41,7 @@ interface HttpClientInterface
      * @param array $options
      */
     public function setOptions(array $options);
+
+    public function setBaseUri(string $uri);
+    public function setAuthToken(string $token);
 }
