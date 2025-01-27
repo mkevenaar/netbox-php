@@ -68,7 +68,7 @@ class HttpClient implements HttpClientInterface
     {
         $response = $this->getClient()->request(
             'GET',
-            getenv('NETBOX_API') . $path,
+            $this->baseUri . $path,
             [
                 'query' => $query
             ]
@@ -87,7 +87,7 @@ class HttpClient implements HttpClientInterface
     {
         $response = $this->getClient()->request(
             'POST',
-            getenv('NETBOX_API') . $path,
+            $this->baseUri . $path,
             [
                 'json' => $body
             ]
@@ -106,7 +106,7 @@ class HttpClient implements HttpClientInterface
     {
         $response = $this->getClient()->request(
             'PUT',
-            getenv('NETBOX_API') . $path,
+            $this->baseUri . $path,
             [
                 'json' => $body
             ]
@@ -125,7 +125,7 @@ class HttpClient implements HttpClientInterface
     {
         $response = $this->getClient()->request(
             'PATCH',
-            getenv('NETBOX_API') . $path,
+            $this->baseUri . $path,
             [
                 'json' => $body
             ]
@@ -144,7 +144,7 @@ class HttpClient implements HttpClientInterface
     {
         $response = $this->getClient()->request(
             'DELETE',
-            getenv('NETBOX_API') . $path,
+            $this->baseUri . $path,
             [
                 'json' => $body
             ]
