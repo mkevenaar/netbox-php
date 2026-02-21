@@ -1,24 +1,54 @@
 {
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
-  "assignees": ["mkevenaar"],
-  "labels": ["renovate"],
-  "lockFileMaintenance": {"enabled": false, "extends": ["schedule:daily"]},
+  "assignees": [
+    "mkevenaar"
+  ],
+  "labels": [
+    "renovate"
+  ],
+  "lockFileMaintenance": {
+    "enabled": false,
+    "extends": [
+      "schedule:daily"
+    ]
+  },
   "packageRules": [
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["major", "minor"],
-      "matchPackageNames": ["php"],
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
+      "matchPackageNames": [
+        "php"
+      ],
       "enabled": false
     },
     {
-      "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor", "patch", "bump", "digest", "rollback"],
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "bump",
+        "digest",
+        "rollback"
+      ],
       "enabled": false
     },
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest", "lockFileMaintenance"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "lockFileMaintenance"
+      ],
       "enabled": true,
       "automerge": true
     }
