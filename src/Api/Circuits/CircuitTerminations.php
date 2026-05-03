@@ -9,6 +9,16 @@ class CircuitTerminations extends AbstractApi
 {
     /**
      * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function list(array $params = [])
+    {
+        return $this->get("/circuits/circuit-terminations/", $params);
+    }
+
+    /**
+     * @param array $params
      * @return array
      * @throws GuzzleException
      */
@@ -18,14 +28,44 @@ class CircuitTerminations extends AbstractApi
     }
 
     /**
-     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/circuits/circuit-terminations/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/circuits/circuit-terminations/", $params);
+    }
+
+    /**
      * @param array $params
      * @return bool
      * @throws GuzzleException
      */
-    public function remove(int $id, array $params = []): bool
+    public function bulkRemove(array $params = []): bool
     {
-        return $this->delete("/circuits/circuit-terminations/" . $id . "/", $params);
+        return $this->delete("/circuits/circuit-terminations/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/circuits/circuit-terminations/" . $id . "/", $params);
     }
 
     /**
@@ -51,13 +91,14 @@ class CircuitTerminations extends AbstractApi
     }
 
     /**
+     * @param int $id
      * @param array $params
-     * @return mixed
+     * @return bool
      * @throws GuzzleException
      */
-    public function list(array $params = [])
+    public function remove(int $id, array $params = []): bool
     {
-        return $this->get("/circuits/circuit-terminations/", $params);
+        return $this->delete("/circuits/circuit-terminations/" . $id . "/", $params);
     }
 
     /**
@@ -66,8 +107,8 @@ class CircuitTerminations extends AbstractApi
      * @return mixed
      * @throws GuzzleException
      */
-    public function show(int $id, array $params = [])
+    public function paths(int $id, array $params = [])
     {
-        return $this->get("/circuits/circuit-terminations/" . $id . "/", $params);
+        return $this->get("/circuits/circuit-terminations/" . $id . "/paths/", $params);
     }
 }

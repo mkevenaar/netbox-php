@@ -14,6 +14,6 @@ class Config extends AbstractApi
      */
     public function list(array $params = [])
     {
-        return $this->get("/users/users/", $params);
+        return $this->get("/users/config/", $params);
     }
 }

@@ -9,6 +9,16 @@ class ImageAttachments extends AbstractApi
 {
     /**
      * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function list(array $params = [])
+    {
+        return $this->get("/extras/image-attachments/", $params);
+    }
+
+    /**
+     * @param array $params
      * @return array
      * @throws GuzzleException
      */
@@ -18,14 +28,44 @@ class ImageAttachments extends AbstractApi
     }
 
     /**
-     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/extras/image-attachments/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/extras/image-attachments/", $params);
+    }
+
+    /**
      * @param array $params
      * @return bool
      * @throws GuzzleException
      */
-    public function remove(int $id, array $params = []): bool
+    public function bulkRemove(array $params = []): bool
     {
-        return $this->delete("/extras/image-attachments/" . $id . "/", $params);
+        return $this->delete("/extras/image-attachments/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/extras/image-attachments/" . $id . "/", $params);
     }
 
     /**
@@ -51,23 +91,13 @@ class ImageAttachments extends AbstractApi
     }
 
     /**
-     * @param array $params
-     * @return mixed
-     * @throws GuzzleException
-     */
-    public function list(array $params = [])
-    {
-        return $this->get("/extras/image-attachments/", $params);
-    }
-
-    /**
      * @param int $id
      * @param array $params
-     * @return mixed
+     * @return bool
      * @throws GuzzleException
      */
-    public function show(int $id, array $params = [])
+    public function remove(int $id, array $params = []): bool
     {
-        return $this->get("/extras/image-attachments/" . $id . "/", $params);
+        return $this->delete("/extras/image-attachments/" . $id . "/", $params);
     }
 }

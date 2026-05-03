@@ -9,6 +9,16 @@ class Prefixes extends AbstractApi
 {
     /**
      * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function list(array $params = [])
+    {
+        return $this->get("/ipam/prefixes/", $params);
+    }
+
+    /**
+     * @param array $params
      * @return array
      * @throws GuzzleException
      */
@@ -18,14 +28,44 @@ class Prefixes extends AbstractApi
     }
 
     /**
-     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/ipam/prefixes/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/ipam/prefixes/", $params);
+    }
+
+    /**
      * @param array $params
      * @return bool
      * @throws GuzzleException
      */
-    public function remove(int $id, array $params = []): bool
+    public function bulkRemove(array $params = []): bool
     {
-        return $this->delete("/ipam/prefixes/" . $id . "/", $params);
+        return $this->delete("/ipam/prefixes/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/ipam/prefixes/" . $id . "/", $params);
     }
 
     /**
@@ -51,24 +91,14 @@ class Prefixes extends AbstractApi
     }
 
     /**
-     * @param array $params
-     * @return mixed
-     * @throws GuzzleException
-     */
-    public function list(array $params = [])
-    {
-        return $this->get("/ipam/prefixes/", $params);
-    }
-
-    /**
      * @param int $id
      * @param array $params
-     * @return mixed
+     * @return bool
      * @throws GuzzleException
      */
-    public function show(int $id, array $params = [])
+    public function remove(int $id, array $params = []): bool
     {
-        return $this->get("/ipam/prefixes/" . $id . "/", $params);
+        return $this->delete("/ipam/prefixes/" . $id . "/", $params);
     }
 
     /**
@@ -99,7 +129,7 @@ class Prefixes extends AbstractApi
      * @return mixed
      * @throws GuzzleException
      */
-    public function showAvailable(int $id, array $params = [])
+    public function showAvailablePrefixes(int $id, array $params = [])
     {
         return $this->get("/ipam/prefixes/" . $id . "/available-prefixes/", $params);
     }
@@ -110,8 +140,30 @@ class Prefixes extends AbstractApi
      * @return array
      * @throws GuzzleException
      */
-    public function addAvailable(int $id, array $params = []): array
+    public function addAvailablePrefixes(int $id, array $params = []): array
     {
         return $this->post("/ipam/prefixes/" . $id . "/available-prefixes/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function showAvailable(int $id, array $params = [])
+    {
+        return $this->showAvailablePrefixes($id, $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function addAvailable(int $id, array $params = []): array
+    {
+        return $this->addAvailablePrefixes($id, $params);
     }
 }

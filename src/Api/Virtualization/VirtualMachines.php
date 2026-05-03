@@ -9,6 +9,16 @@ class VirtualMachines extends AbstractApi
 {
     /**
      * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function list(array $params = [])
+    {
+        return $this->get("/virtualization/virtual-machines/", $params);
+    }
+
+    /**
+     * @param array $params
      * @return array
      * @throws GuzzleException
      */
@@ -18,14 +28,44 @@ class VirtualMachines extends AbstractApi
     }
 
     /**
-     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/virtualization/virtual-machines/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/virtualization/virtual-machines/", $params);
+    }
+
+    /**
      * @param array $params
      * @return bool
      * @throws GuzzleException
      */
-    public function remove(int $id, array $params = []): bool
+    public function bulkRemove(array $params = []): bool
     {
-        return $this->delete("/virtualization/virtual-machines/" . $id . "/", $params);
+        return $this->delete("/virtualization/virtual-machines/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/virtualization/virtual-machines/" . $id . "/", $params);
     }
 
     /**
@@ -51,23 +91,24 @@ class VirtualMachines extends AbstractApi
     }
 
     /**
+     * @param int $id
      * @param array $params
-     * @return mixed
+     * @return bool
      * @throws GuzzleException
      */
-    public function list(array $params = [])
+    public function remove(int $id, array $params = []): bool
     {
-        return $this->get("/virtualization/virtual-machines/", $params);
+        return $this->delete("/virtualization/virtual-machines/" . $id . "/", $params);
     }
 
     /**
      * @param int $id
      * @param array $params
-     * @return mixed
+     * @return array
      * @throws GuzzleException
      */
-    public function show(int $id, array $params = [])
+    public function renderConfig(int $id, array $params = []): array
     {
-        return $this->get("/virtualization/virtual-machines/" . $id . "/", $params);
+        return $this->post("/virtualization/virtual-machines/" . $id . "/render-config/", $params);
     }
 }

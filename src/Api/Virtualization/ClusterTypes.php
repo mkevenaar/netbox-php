@@ -9,6 +9,16 @@ class ClusterTypes extends AbstractApi
 {
     /**
      * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function list(array $params = [])
+    {
+        return $this->get("/virtualization/cluster-types/", $params);
+    }
+
+    /**
+     * @param array $params
      * @return array
      * @throws GuzzleException
      */
@@ -18,14 +28,44 @@ class ClusterTypes extends AbstractApi
     }
 
     /**
-     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/virtualization/cluster-types/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/virtualization/cluster-types/", $params);
+    }
+
+    /**
      * @param array $params
      * @return bool
      * @throws GuzzleException
      */
-    public function remove(int $id, array $params = []): bool
+    public function bulkRemove(array $params = []): bool
     {
-        return $this->delete("/virtualization/cluster-types/" . $id . "/", $params);
+        return $this->delete("/virtualization/cluster-types/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/virtualization/cluster-types/" . $id . "/", $params);
     }
 
     /**
@@ -51,23 +91,13 @@ class ClusterTypes extends AbstractApi
     }
 
     /**
-     * @param array $params
-     * @return mixed
-     * @throws GuzzleException
-     */
-    public function list(array $params = [])
-    {
-        return $this->get("/virtualization/cluster-types/", $params);
-    }
-
-    /**
      * @param int $id
      * @param array $params
-     * @return mixed
+     * @return bool
      * @throws GuzzleException
      */
-    public function show(int $id, array $params = [])
+    public function remove(int $id, array $params = []): bool
     {
-        return $this->get("/virtualization/cluster-types/" . $id . "/", $params);
+        return $this->delete("/virtualization/cluster-types/" . $id . "/", $params);
     }
 }

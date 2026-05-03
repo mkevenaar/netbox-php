@@ -9,6 +9,16 @@ class Racks extends AbstractApi
 {
     /**
      * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function list(array $params = [])
+    {
+        return $this->get("/dcim/racks/", $params);
+    }
+
+    /**
+     * @param array $params
      * @return array
      * @throws GuzzleException
      */
@@ -18,14 +28,44 @@ class Racks extends AbstractApi
     }
 
     /**
-     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/dcim/racks/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/dcim/racks/", $params);
+    }
+
+    /**
      * @param array $params
      * @return bool
      * @throws GuzzleException
      */
-    public function remove(int $id, array $params = []): bool
+    public function bulkRemove(array $params = []): bool
     {
-        return $this->delete("/dcim/racks/" . $id . "/", $params);
+        return $this->delete("/dcim/racks/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/dcim/racks/" . $id . "/", $params);
     }
 
     /**
@@ -40,24 +80,25 @@ class Racks extends AbstractApi
     }
 
     /**
+     * @param int $id
      * @param array $params
-     * @return mixed
+     * @return array
      * @throws GuzzleException
      */
-    public function list(array $params = [])
+    public function update(int $id, array $params = []): array
     {
-        return $this->get("/dcim/racks/", $params);
+        return $this->patch("/dcim/racks/" . $id . "/", $params);
     }
 
     /**
      * @param int $id
      * @param array $params
-     * @return mixed
+     * @return bool
      * @throws GuzzleException
      */
-    public function show(int $id, array $params = [])
+    public function remove(int $id, array $params = []): bool
     {
-        return $this->get("/dcim/racks/" . $id . "/", $params);
+        return $this->delete("/dcim/racks/" . $id . "/", $params);
     }
 
     /**

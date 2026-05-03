@@ -5,6 +5,9 @@ namespace mkevenaar\NetBox\Api\Secrets;
 use GuzzleHttp\Exception\GuzzleException;
 use mkevenaar\NetBox\Api\AbstractApi;
 
+/**
+ * @deprecated NetBox 4.5 no longer provides the /secrets/get-session-key/ endpoint.
+ */
 class Session extends AbstractApi
 {
     /**

@@ -9,12 +9,85 @@ class ConsoleServerPorts extends AbstractApi
 {
     /**
      * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function list(array $params = [])
+    {
+        return $this->get("/dcim/console-server-ports/", $params);
+    }
+
+    /**
+     * @param array $params
      * @return array
      * @throws GuzzleException
      */
     public function add(array $params = []): array
     {
         return $this->post("/dcim/console-server-ports/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/dcim/console-server-ports/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/dcim/console-server-ports/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return bool
+     * @throws GuzzleException
+     */
+    public function bulkRemove(array $params = []): bool
+    {
+        return $this->delete("/dcim/console-server-ports/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/dcim/console-server-ports/" . $id . "/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function edit(int $id, array $params = []): array
+    {
+        return $this->put("/dcim/console-server-ports/" . $id . "/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function update(int $id, array $params = []): array
+    {
+        return $this->patch("/dcim/console-server-ports/" . $id . "/", $params);
     }
 
     /**
@@ -31,32 +104,11 @@ class ConsoleServerPorts extends AbstractApi
     /**
      * @param int $id
      * @param array $params
-     * @return array
-     * @throws GuzzleException
-     */
-    public function edit(int $id, array $params = []): array
-    {
-        return $this->put("/dcim/console-server-ports/" . $id . "/", $params);
-    }
-
-    /**
-     * @param array $params
      * @return mixed
      * @throws GuzzleException
      */
-    public function list(array $params = [])
+    public function trace(int $id, array $params = [])
     {
-        return $this->get("/dcim/console-server-ports/", $params);
-    }
-
-    /**
-     * @param int $id
-     * @param array $params
-     * @return mixed
-     * @throws GuzzleException
-     */
-    public function show(int $id, array $params = [])
-    {
-        return $this->get("/dcim/console-server-ports/" . $id . "/", $params);
+        return $this->get("/dcim/console-server-ports/" . $id . "/trace/", $params);
     }
 }

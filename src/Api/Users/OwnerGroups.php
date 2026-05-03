@@ -1,0 +1,103 @@
+<?php
+
+namespace mkevenaar\NetBox\Api\Users;
+
+use GuzzleHttp\Exception\GuzzleException;
+use mkevenaar\NetBox\Api\AbstractApi;
+
+class OwnerGroups extends AbstractApi
+{
+    /**
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function list(array $params = [])
+    {
+        return $this->get("/users/owner-groups/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function add(array $params = []): array
+    {
+        return $this->post("/users/owner-groups/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/users/owner-groups/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/users/owner-groups/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return bool
+     * @throws GuzzleException
+     */
+    public function bulkRemove(array $params = []): bool
+    {
+        return $this->delete("/users/owner-groups/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/users/owner-groups/" . $id . "/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function edit(int $id, array $params = []): array
+    {
+        return $this->put("/users/owner-groups/" . $id . "/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function update(int $id, array $params = []): array
+    {
+        return $this->patch("/users/owner-groups/" . $id . "/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return bool
+     * @throws GuzzleException
+     */
+    public function remove(int $id, array $params = []): bool
+    {
+        return $this->delete("/users/owner-groups/" . $id . "/", $params);
+    }
+}
