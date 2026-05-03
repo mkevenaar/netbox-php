@@ -8,15 +8,13 @@ use mkevenaar\NetBox\Api\AbstractApi;
 class Users extends AbstractApi
 {
     /**
-     * @param int $id
      * @param array $params
      * @return mixed
      * @throws GuzzleException
      */
-    public function checkLogin(int $id, array $params = [])
+    public function list(array $params = [])
     {
-        return $this->get("/users/users/" . $id . "/", $params);
-        //return $this->post(array_merge(['controller' => 'debtor', 'action' => 'checkLogin'], $params));
+        return $this->get("/users/users/", $params);
     }
 
     /**
@@ -30,14 +28,44 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/users/users/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/users/users/", $params);
+    }
+
+    /**
      * @param array $params
      * @return bool
      * @throws GuzzleException
      */
-    public function remove(int $id, array $params = []): bool
+    public function bulkRemove(array $params = []): bool
     {
-        return $this->delete("/users/users/" . $id . "/", $params);
+        return $this->delete("/users/users/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/users/users/" . $id . "/", $params);
     }
 
     /**
@@ -63,23 +91,13 @@ class Users extends AbstractApi
     }
 
     /**
-     * @param array $params
-     * @return mixed
-     * @throws GuzzleException
-     */
-    public function list(array $params = [])
-    {
-        return $this->get("/users/users/", $params);
-    }
-
-    /**
      * @param int $id
      * @param array $params
-     * @return mixed
+     * @return bool
      * @throws GuzzleException
      */
-    public function show(int $id, array $params = [])
+    public function remove(int $id, array $params = []): bool
     {
-        return $this->get("/users/users/" . $id . "/", $params);
+        return $this->delete("/users/users/" . $id . "/", $params);
     }
 }

@@ -9,6 +9,16 @@ class ConfigContexts extends AbstractApi
 {
     /**
      * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function list(array $params = [])
+    {
+        return $this->get("/extras/config-contexts/", $params);
+    }
+
+    /**
+     * @param array $params
      * @return array
      * @throws GuzzleException
      */
@@ -18,14 +28,44 @@ class ConfigContexts extends AbstractApi
     }
 
     /**
-     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkEdit(array $params = []): array
+    {
+        return $this->put("/extras/config-contexts/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function bulkUpdate(array $params = []): array
+    {
+        return $this->patch("/extras/config-contexts/", $params);
+    }
+
+    /**
      * @param array $params
      * @return bool
      * @throws GuzzleException
      */
-    public function remove(int $id, array $params = []): bool
+    public function bulkRemove(array $params = []): bool
     {
-        return $this->delete("/extras/config-contexts/" . $id . "/", $params);
+        return $this->delete("/extras/config-contexts/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return mixed
+     * @throws GuzzleException
+     */
+    public function show(int $id, array $params = [])
+    {
+        return $this->get("/extras/config-contexts/" . $id . "/", $params);
     }
 
     /**
@@ -51,23 +91,24 @@ class ConfigContexts extends AbstractApi
     }
 
     /**
+     * @param int $id
      * @param array $params
-     * @return mixed
+     * @return bool
      * @throws GuzzleException
      */
-    public function list(array $params = [])
+    public function remove(int $id, array $params = []): bool
     {
-        return $this->get("/extras/config-contexts/", $params);
+        return $this->delete("/extras/config-contexts/" . $id . "/", $params);
     }
 
     /**
      * @param int $id
      * @param array $params
-     * @return mixed
+     * @return array
      * @throws GuzzleException
      */
-    public function show(int $id, array $params = [])
+    public function sync(int $id, array $params = []): array
     {
-        return $this->get("/extras/config-contexts/" . $id . "/", $params);
+        return $this->post("/extras/config-contexts/" . $id . "/sync/", $params);
     }
 }

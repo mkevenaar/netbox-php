@@ -8,10 +8,23 @@
         "ext-json": "*",
         "guzzlehttp/guzzle": "^6.5|^7.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "^9.6"
+    },
     "autoload": {
         "psr-4": {
             "mkevenaar\\NetBox\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "mkevenaar\\NetBox\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "php tests/run-coverage.php",
+        "coverage:check": "php tests/run-coverage.php 80"
     },
     "minimum-stability": "stable",
     "prefer-stable": true

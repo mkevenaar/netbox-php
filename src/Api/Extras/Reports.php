@@ -5,6 +5,9 @@ namespace mkevenaar\NetBox\Api\Extras;
 use GuzzleHttp\Exception\GuzzleException;
 use mkevenaar\NetBox\Api\AbstractApi;
 
+/**
+ * @deprecated NetBox 4.5 no longer provides the /extras/reports/ endpoint.
+ */
 class Reports extends AbstractApi
 {
     /**

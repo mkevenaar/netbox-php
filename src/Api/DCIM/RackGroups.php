@@ -5,6 +5,9 @@ namespace mkevenaar\NetBox\Api\DCIM;
 use GuzzleHttp\Exception\GuzzleException;
 use mkevenaar\NetBox\Api\AbstractApi;
 
+/**
+ * @deprecated NetBox 4.5 no longer provides the /dcim/rack-groups/ endpoint.
+ */
 class RackGroups extends AbstractApi
 {
     /**
